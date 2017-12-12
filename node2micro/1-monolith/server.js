@@ -1,138 +1,54 @@
+// Load required libraries.
 const app = require('koa')();
 const router = require('koa-router')();
-const db = require('./db.json');
+var mongo = require('mongodb').MongoClient;
+var mysql = require('mysql');
+
+// Load a file with Sample texts.
 const dd = require('./dumbdata.json');
+// Set the limit of data to be generated.
 const limit = 200000;
 
-var mongo = require('mongodb').MongoClient;
-var mongo_url = "mongodb://localhost:27017/mydb";
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+// Set connection string/info.
+var conn_mongo = "mongodb://localhost:27017/node2micro";
+var conn_mysql = mysql.createConnection({
   host     : '127.0.0.1',
   port     : '3306',
   user     : 'root',
   password : 'root',
-  database : 'exp1',
+  database : 'node2micro',
 });
 
-// Log requests
+// Log requests.
 app.use(function *(next){
   const start = new Date;
   yield next;
   const ms = new Date - start;
-  console.log('%s %s - %s (ms)', this.method, this.url, ms);
+  console.log('%s %s - Finished in %s (ms)', this.method, this.url, ms);
 });
+
+
+// ------------------- ENDPOINTS -----------------------
 
 // Generate Users - Mongo
 router.get('/api/generate/users', function *(next) {
-  mongo.connect(mongo_url, function(e1, db) {
-    if (e1) throw e1;
-    console.log("Database created!");
-    
-    var dbase = db.db("mydb");
-
-    dbase.collection('users').drop();
-
-    // Generate the collection.
-    dbase.createCollection("users", function(e2, coll) {
-      console.log("Collection created!");
-
-      var obj_users = [];
-
-      for (var i = 0; i < limit; i++) {    
-        var a = Math.floor((Math.random() * 9) + 1);
-        var b = Math.floor((Math.random() * 9) + 1);
-        var uname = dd.names[a];
-        var ubio = dd.text[b];
-        var obj_user = {
-          _id: i, 
-          username: 'user-' + uname.toLowerCase() + '-' + i, 
-          name: uname + '-' + i, 
-          bio: ubio
-        }
-
-        obj_users.push(obj_user);
-      }
-
-      coll.insertMany(obj_users, function(err, result) {
-        console.log("--------------- Users generated");
-      });
-    });
-  });
+  yield generateUsers;
+  this.body = "Users - Ok";
 });
 
+// Generate Threads - Mongo
+router.get('/api/generate/threads', function *(next) {
+  yield generateThreads;
+  this.body = "Threads - Ok";
+});
+
+// Generate Posts - MySQL
 router.get('/api/generate/posts', function *(next) {
-  const start = new Date;
-  yield next;
-  console.log("---------------- A");
-  generateData(function() {
-    const ms = new Date - start;
-    console.log("---------------- C");
-    this.body = "Datos generados correctamente en: " + ms + "ms";
-  });
+  yield generatePosts;
+  this.body = "Posts - Ok";
 });
 
-function generateData(callback) {
-  connection.connect();
-
-  // Generate Users
-  console.log("------------------------ Generating USERS ---------------------");
-  for (var i = 0; i < limit; i++) {
-    
-    var a = Math.floor((Math.random() * 9) + 1);
-    var b = Math.floor((Math.random() * 9) + 1);
-    var uname = dd.names[a];
-    var ubio = dd.text[b];
-    var data = {username: 'user-' + uname.toLowerCase() + '-' + i, name: uname + '-' + i, bio: ubio}
-
-    console.log(data);
-
-    connection.query('INSERT INTO users SET ?', data, function (error, results, fields) {
-      if (error) throw error;
-      //console.log(results.insertId);
-    });
-  }
-
-  // Generate Threads
-  console.log("------------------------ Generating THREADS ---------------------");
-  for (var i = 0; i < limit; i++) {
-    var a = Math.floor((Math.random() * 9) + 1);
-    var uid = Math.floor((Math.random() * (limit - 1)) + 1);
-    var title = dd.names[a];
-    var data = {title: title + '-' + i, author: uid}
-
-    console.log(data);
-
-    connection.query('INSERT INTO threads SET ?', data, function (error, results, fields) {
-      if (error) throw error;
-      //console.log(results.insertId);
-    });
-  }
-
-  // Generate Posts
-  console.log("------------------------ Generating POSTS ---------------------");
-  for (var i = 0; i < limit; i++) {
-    var a = Math.floor((Math.random() * 9) + 1);
-    var uid = Math.floor((Math.random() * (limit - 1)) + 1);
-    var tid = Math.floor((Math.random() * (limit - 1)) + 1);
-    var text = dd.names[a];
-    var data = {thread: tid, text: text, user: uid}
-
-    console.log(data);
-
-    connection.query('INSERT INTO posts SET ?', data, function (error, results, fields) {
-      if (error) throw error;
-      //console.log(results.insertId);
-    });
-
-    if (i + 1 == limit) {
-      console.log("---------------- B");
-      connection.end();
-      callback();
-    }
-  }
-}
-
+// Extra endpoints to retrieve existing data.
 router.get('/api/users', function *(next) {
   this.body = db.users;
 });
@@ -169,6 +85,124 @@ router.get('/', function *() {
   this.body = "Ready to receive requests";
 });
 
+
+// ------------------- HELPER FUNCTIONS --------------------
+
+// Function to generate Users data.
+function generateUsers(callback) {
+  mongo.connect(conn_mongo, function(e1, db) {
+    if (e1) throw e1;
+    
+    var dbase = db.db("mydb");
+
+    // Drop the existing collection to avoid duplicated ids.
+    dbase.collection('users').drop();
+
+    // Generate the collection.
+    dbase.createCollection("users", function(e2, coll) {
+
+      var obj_users = [];
+
+      // Generate ramdon values for users data.
+      for (var i = 0; i < limit; i++) {    
+        var a = Math.floor((Math.random() * 9) + 1);
+        var b = Math.floor((Math.random() * 9) + 1);
+        var uname = dd.names[a];
+        var ubio = dd.text[b];
+        var obj_user = {
+          _id: i,
+          username: 'user-' + uname.toLowerCase() + '-' + i,
+          name: uname + '-' + i,
+          bio: ubio
+        }
+
+        obj_users.push(obj_user);
+      }
+
+      // Insert in the collection the values.
+      coll.insertMany(obj_users, function(err, result) {
+        console.log(limit + " Users generated!");
+        db.close();
+        callback();
+      });
+    });
+  });
+}
+
+// Function to generate Users data.
+function generateThreads(callback) {
+  mongo.connect(conn_mongo, function(e1, db) {
+    if (e1) throw e1;
+    
+    var dbase = db.db("mydb");
+
+    // Drop the existing collection to avoid duplicated ids.
+    dbase.collection('threads').drop();
+
+    // Generate the collection.
+    dbase.createCollection("threads", function(e2, coll) {
+
+      var obj_threads = [];
+
+      for (var i = 0; i < limit; i++) {
+        var a = Math.floor((Math.random() * 9) + 1);
+        var uid = Math.floor((Math.random() * (limit - 1)) + 1);
+        var title = dd.titles[a];
+        var obj_thread = {
+          _id: i,
+          title: title + '-' + i, 
+          author: uid
+        };
+
+        obj_threads.push(obj_thread);
+      }
+
+      // Insert in the collection the values.
+      coll.insertMany(obj_threads, function(err, result) {
+        console.log(limit + " Threads generated!");
+        db.close();
+        callback();
+      });
+    });
+  });
+}
+
+// Function to generate Posts data.
+function generatePosts(callback) {
+  conn_mysql.connect();
+
+  // Clean up the table.
+  conn_mysql.query('DELETE FROM posts', {}, function (error, results, fields) {
+    if (error) throw error;
+  });
+
+  // Generate Posts
+  for (var i = 0; i < limit; i++) {
+    var a = Math.floor((Math.random() * 9) + 1);
+    var uid = Math.floor((Math.random() * (limit - 1)) + 1);
+    var tid = Math.floor((Math.random() * (limit - 1)) + 1);
+    var text = dd.names[a];
+    var data = {
+      thread: tid,
+      text: text, user:
+      uid
+    };
+
+    // Stores in the MySQL Database
+    conn_mysql.query('INSERT INTO posts SET ?', data, function (error, results, fields) {
+      if (error) throw error;
+    });
+
+    // Checks all data is generated before to throw the callback.
+    if (i + 1 == limit) {
+      console.log(limit + " Posts generated!");
+      conn_mysql.end();
+      callback();
+    }
+  }
+}
+
+// ----------------------- ROUTER settings and Listener port ---------
 app.use(router.routes());
 app.use(router.allowedMethods());
 
