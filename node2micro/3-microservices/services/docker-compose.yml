@@ -1,0 +1,60 @@
+version: '2'
+
+services:
+  users:
+    image: node-exp1
+    ports:
+      - "3001:3000"
+    volumes:
+      - "./users:/srv"
+      - "/srv/node_modules"
+    links:
+      - mongo
+  
+  threads:
+    image: node-exp1
+    ports:
+      - "3002:3000"
+    volumes:
+      - "./threads:/srv"
+      - "/srv/node_modules"
+    links:
+      - mongo
+
+  posts:
+    image: node-exp1
+    ports:
+      - "3003:3000"
+    volumes:
+      - "./posts:/srv"
+      - "/srv/node_modules"
+    links:
+      - mysql
+      - mongo
+  
+  mysql:
+    build:
+      context: ./mysql
+      args:
+        - MYSQL_DATABASE=default_database
+        - MYSQL_USER=default_user
+        - MYSQL_PASSWORD=root
+        - MYSQL_ROOT_PASSWORD=root
+    expose:
+      - "3306"
+
+    volumes_from:
+      - volumes
+
+  mongo:
+    build: ./mongo
+    expose:
+      - "27017"
+    volumes_from:
+      - volumes
+
+  volumes:
+        image: tianon/true
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+            - ./data/mongo:/var/lib/mongodb

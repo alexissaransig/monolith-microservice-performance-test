@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "koa": "^1.2.5",
+    "koa-router": "^5.4.0",
+    "mongodb": "^3.0.0-rc0",
+    "mysql": "^2.15.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
