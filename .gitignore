@@ -3,3 +3,4 @@ data
 package-lock.json
 *.lock
 .DS_Store
+.idea
