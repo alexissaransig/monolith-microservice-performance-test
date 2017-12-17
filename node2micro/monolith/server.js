@@ -1,18 +1,12 @@
 // Load required libraries.
 const app = require('koa')();
 const router = require('koa-router')();
-var mysql = require('mysql');
+var mysql2 = require('koa-mysql');
 
-require("./mongoApp")(app);
+require("./src/mongoApp")(app);
+require("./src/mysqlApp")(app);
 
-// Set connection string/info.
-var conn_mysql = mysql.createConnection({
-  host     : '127.0.0.1',
-  port     : '3306',
-  user     : 'root',
-  password : 'root',
-  database : 'node2micro',
-});
+var conn_mysql = mysql2.createPool({ user: 'root', password: 'root', database: 'node2micro', host: '127.0.0.1' });
 
 // Log requests.
 app.use(function *(next){
@@ -27,7 +21,7 @@ app.use(function *(next){
 
 // Generate Users - Mongo
 router.get('/api/generate/users', function *(next) {
-  yield app.MgenerateUsers;
+  yield app.generateUsers;
   this.body = "Users - Ok";
 });
 
@@ -39,7 +33,7 @@ router.get('/api/generate/threads', function *(next) {
 
 // Generate Posts - MySQL
 router.get('/api/generate/posts', function *(next) {
-  yield generatePosts;
+  yield app.generatePosts;
   this.body = "Posts - Ok";
 });
 
@@ -64,12 +58,14 @@ router.get('/api/threads/:threadId', function *() {
 
 router.get('/api/posts/in-thread/:threadId', function *() {
   const id = parseInt(this.params.threadId);
-  this.body = db.posts.filter((post) => post.thread == id);
+  var rows = yield conn_mysql.query('SELECT * FROM posts WHERE thread=' + id);
+  this.body = rows;
 });
 
 router.get('/api/posts/by-user/:userId', function *() {
   const id = parseInt(this.params.userId);
-  this.body = db.posts.filter((post) => post.user == id);
+  var rows = yield conn_mysql.query('SELECT * FROM posts WHERE user=' + id);
+  this.body = rows;
 });
 
 router.get('/api/', function *() {
@@ -79,41 +75,6 @@ router.get('/api/', function *() {
 router.get('/', function *() {
   this.body = "Ready to receive requests";
 });
-
-// Function to generate Posts data.
-function generatePosts(callback) {
-  conn_mysql.connect();
-
-  // Clean up the table.
-  conn_mysql.query('DELETE FROM posts', {}, function (error, results, fields) {
-    if (error) throw error;
-  });
-
-  // Generate Posts
-  for (var i = 0; i < limit; i++) {
-    var a = Math.floor((Math.random() * 9) + 1);
-    var uid = Math.floor((Math.random() * (limit - 1)) + 1);
-    var tid = Math.floor((Math.random() * (limit - 1)) + 1);
-    var text = dd.names[a];
-    var data = {
-      thread: tid,
-      text: text, user:
-      uid
-    };
-
-    // Stores in the MySQL Database
-    conn_mysql.query('INSERT INTO posts SET ?', data, function (error, results, fields) {
-      if (error) throw error;
-    });
-
-    // Checks all data is generated before to throw the callback.
-    if (i + 1 == limit) {
-      console.log(limit + " Posts generated!");
-      conn_mysql.end();
-      callback();
-    }
-  }
-}
 
 // ----------------------- ROUTER settings and Listener port ---------
 app.use(router.routes());

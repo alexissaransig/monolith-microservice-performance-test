@@ -44,7 +44,7 @@ module.exports = function (app) {
           // Insert in the collection the values.
           coll.insertMany(obj_users, function(err, result) {
             console.log(limit + " Users generated!");
-            db.close();
+            //db.close();
             callback();
           });
         });
