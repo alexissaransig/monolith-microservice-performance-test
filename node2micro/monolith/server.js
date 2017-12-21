@@ -58,14 +58,14 @@ router.get('/api/threads/:threadId', function *() {
   this.body = yield app.threads.find({_id: id}).toArray();
 });
 
-router.get('/api/posts/in-thread/:threadId', function *() {
-  const id = parseInt(this.params.threadId);
-  var rows = yield conn_mysql.query('SELECT * FROM posts WHERE thread=' + id);
+router.get('/api/posts', function *() {
+  var rows = yield conn_mysql.query('SELECT * FROM posts');
   this.body = rows;
 });
 
-router.get('/api/posts', function *() {
-  var rows = yield conn_mysql.query('SELECT * FROM posts');
+router.get('/api/posts/in-thread/:threadId', function *() {
+  const id = parseInt(this.params.threadId);
+  var rows = yield conn_mysql.query('SELECT * FROM posts WHERE thread=' + id);
   this.body = rows;
 });
 

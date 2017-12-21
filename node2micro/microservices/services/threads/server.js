@@ -1,22 +1,30 @@
 const app = require('koa')();
 const router = require('koa-router')();
-const db = require('./db.json');
+
+require("./src/mongoApp")(app);
 
 // Log requests
 app.use(function *(next){
   const start = new Date;
   yield next;
   const ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
+  console.log('%s %s - Finished in %s (ms)', this.method, this.url, ms);
+});
+
+// Generate Threads - Mongo
+router.get('/api/generate/threads', function *(next) {
+  yield app.generateThreads;
+  this.body = "Threads - Ok";
 });
 
 router.get('/api/threads', function *() {
-  this.body = db.threads;
+  // this.body = yield app.threads.find().limit(100000).toArray();
+  this.body = yield app.threads.find().toArray();
 });
 
 router.get('/api/threads/:threadId', function *() {
   const id = parseInt(this.params.threadId);
-  this.body = db.threads.find((thread) => thread.id == id);
+  this.body = yield app.threads.find({_id: id}).toArray();
 });
 
 router.get('/api/', function *() {

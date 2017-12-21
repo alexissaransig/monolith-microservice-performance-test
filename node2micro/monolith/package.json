@@ -3,7 +3,6 @@
     "koa": "^1.2.5",
     "koa-mysql": "^1.0.3",
     "koa-router": "^5.4.0",
-    "loadtest": "^2.3.0",
     "mongodb": "^3.0.0-rc0",
     "mysql": "^2.15.0"
   },

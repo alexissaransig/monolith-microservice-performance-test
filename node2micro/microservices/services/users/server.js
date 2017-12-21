@@ -1,22 +1,31 @@
 const app = require('koa')();
 const router = require('koa-router')();
-const db = require('./db.json');
+
+require("./src/mongoApp")(app);
 
 // Log requests
 app.use(function *(next){
   const start = new Date;
   yield next;
   const ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
+  console.log('%s %s - Finished in %s (ms)', this.method, this.url, ms);
 });
 
+// Generate Users - Mongo
+router.get('/api/generate/users', function *(next) {
+  yield app.generateUsers;
+  this.body = "Users - Ok";
+});
+
+// Extra endpoints to retrieve existing data.
 router.get('/api/users', function *(next) {
-  this.body = db.users;
+  // this.body = yield app.users.find().limit(100000).toArray();
+  this.body = yield app.users.find().toArray();
 });
 
 router.get('/api/users/:userId', function *(next) {
   const id = parseInt(this.params.userId);
-  this.body = db.users.find((user) => user.id == id);
+  this.body = yield app.users.find({_id: id}).toArray();
 });
 
 router.get('/api/', function *() {
