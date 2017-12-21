@@ -39,7 +39,8 @@ router.get('/api/generate/posts', function *(next) {
 
 // Extra endpoints to retrieve existing data.
 router.get('/api/users', function *(next) {
-  this.body = yield app.users.find().limit(100).toArray();
+  // this.body = yield app.users.find().limit(100000).toArray();
+  this.body = yield app.users.find().toArray();
 });
 
 router.get('/api/users/:userId', function *(next) {
@@ -48,7 +49,8 @@ router.get('/api/users/:userId', function *(next) {
 });
 
 router.get('/api/threads', function *() {
-  this.body = yield app.threads.find().limit(100).toArray();
+  // this.body = yield app.threads.find().limit(100000).toArray();
+  this.body = yield app.threads.find().toArray();
 });
 
 router.get('/api/threads/:threadId', function *() {
@@ -59,6 +61,11 @@ router.get('/api/threads/:threadId', function *() {
 router.get('/api/posts/in-thread/:threadId', function *() {
   const id = parseInt(this.params.threadId);
   var rows = yield conn_mysql.query('SELECT * FROM posts WHERE thread=' + id);
+  this.body = rows;
+});
+
+router.get('/api/posts', function *() {
+  var rows = yield conn_mysql.query('SELECT * FROM posts');
   this.body = rows;
 });
 

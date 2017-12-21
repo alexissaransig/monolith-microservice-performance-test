@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
 
 # Install dependencies and start the node server
-npm install
-npm install loadtest -g
-npm start
+#npm install loadtest -g
+#npm install
+#npm start
 
-#
-loadtest http://localhost:3000/api/generate/users -t 20 -c 10 --rps 10
+#-------- Generate Data ------------
+# Users
+loadtest http://localhost:3000/api/generate/users -t 3 -c 1 --rps 1
 
-loadtest http://localhost:3000/api/users -t 20 -c 10 --rps 1000
+# Threads
+loadtest http://localhost:3000/api/generate/threads -t 3 -c 1 --rps 1
+
+# Posts
+loadtest http://localhost:3000/api/generate/posts -t 3 -c 1 --rps 1
+
+#-------- Select Data ------------
+# Users
+loadtest http://localhost:3000/api/users -t 10 -c 5 --rps 10
+
+# Threads
+loadtest http://localhost:3000/api/threads -t 10 -c 5 --rps 10
+
+# Posts
+loadtest http://localhost:3000/api/posts -t 10 -c 5 --rps 10
