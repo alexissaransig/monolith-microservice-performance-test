@@ -1,4 +1,5 @@
-CREATE DATABASE newone;
+DROP DATABASE IF EXISTS node2micro;
+CREATE DATABASE node2micro;
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `thread` int(11) DEFAULT NULL,

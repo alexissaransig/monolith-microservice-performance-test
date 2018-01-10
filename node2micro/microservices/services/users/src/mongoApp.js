@@ -1,5 +1,5 @@
 const mongo = require('mongodb').MongoClient;
-const conn_mongo = "mongodb://mongo:27017/node2micro";
+const conn_mongo = "mongodb://mongo/node2micro";
 const limit = 200000;
 const dd = require('./dumbdata.json');
 

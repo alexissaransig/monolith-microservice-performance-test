@@ -54,7 +54,7 @@ services:
       - volumes
 
   volumes:
-        image: tianon/true
-        volumes:
-            - ./data/mysql:/var/lib/mysql
-            - ./data/mongo:/var/lib/mongodb
+    image: tianon/true
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./data/mongo:/var/lib/mongodb
