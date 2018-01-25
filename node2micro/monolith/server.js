@@ -20,13 +20,13 @@ app.use(function *(next){
 // ------------------- ENDPOINTS -----------------------
 
 // Generate Users - Mongo
-router.get('/api/generate/users', function *(next) {
+router.post('/api/generate/users', function *(next) {
   yield app.generateUsers;
   this.body = "Users - Ok";
 });
 
 // Generate Threads - Mongo
-router.get('/api/generate/threads', function *(next) {
+router.post('/api/generate/threads', function *(next) {
   yield app.generateThreads;
   this.body = "Threads - Ok";
 });

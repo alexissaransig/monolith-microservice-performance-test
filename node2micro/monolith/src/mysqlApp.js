@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-const limit = 200000;
+const limit = 500000;
 const dd = require('./dumbdata.json');
 
 module.exports = function (app) {
@@ -25,7 +25,7 @@ module.exports = function (app) {
 
             db.query('CREATE TABLE posts (\n' +
               '  thread int(11) DEFAULT NULL,\n' +
-              '  text varchar(11) DEFAULT NULL,\n' +
+              '  text varchar(1000) DEFAULT NULL,\n' +
               '  user int(11) DEFAULT NULL\n' +
               ')', function (err, result) {
               if (err) throw err;
@@ -36,7 +36,7 @@ module.exports = function (app) {
                 var a = Math.floor((Math.random() * 9) + 1);
                 var uid = Math.floor((Math.random() * (limit - 1)) + 1);
                 var tid = Math.floor((Math.random() * (limit - 1)) + 1);
-                var text = dd.names[a];
+                var text = dd.text[a];
                 var data = {
                   thread: tid,
                   text: text,
