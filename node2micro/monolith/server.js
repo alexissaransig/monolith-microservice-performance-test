@@ -32,7 +32,7 @@ router.post('/api/generate/threads', function *(next) {
 });
 
 // Generate Posts - MySQL
-router.get('/api/generate/posts', function *(next) {
+router.post('/api/generate/posts', function *(next) {
   yield app.generatePosts;
   this.body = "Posts - Ok";
 });
