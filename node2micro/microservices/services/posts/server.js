@@ -15,7 +15,7 @@ app.use(function *(next){
 });
 
 // Generate Posts - MySQL
-router.post('/api/generate/posts', function *(next) {
+router.get('/api/generate/posts', function *(next) {
   yield app.generatePosts;
   this.body = "Posts - Ok";
 });

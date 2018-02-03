@@ -5,3 +5,5 @@ package-lock.json
 .DS_Store
 .idea
 *.hprof
+lib/jmeter/backups
+lib/jmeter/bin/jmeter.log

@@ -5,7 +5,7 @@ const dd = require('./dumbdata.json');
 module.exports = function (app) {
   app.generatePosts = function(callback) {
     // The connection must be created just when the function is called.
-    var db = mysql.createConnection({ user: 'root', password: 'root', database: 'node2micro', host: 'mysql' });
+    var db = mysql.createConnection({ user: 'root', password: 'root', host: 'mysql' });
     // Creates a clean database.
     db.query('DROP DATABASE IF EXISTS node2micro', function (err, result) {
       if (err) throw err;

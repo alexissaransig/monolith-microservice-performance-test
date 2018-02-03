@@ -40,8 +40,8 @@ services:
         - MYSQL_USER=default_user
         - MYSQL_PASSWORD=root
         - MYSQL_ROOT_PASSWORD=root
-    expose:
-      - "3306"
+    ports:
+      - "33068:3306"
 
     volumes_from:
       - volumes

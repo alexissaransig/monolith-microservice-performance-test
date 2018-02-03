@@ -12,7 +12,7 @@ app.use(function *(next){
 });
 
 // Generate Users - Mongo
-router.post('/api/generate/users', function *(next) {
+router.get('/api/generate/users', function *(next) {
   yield app.generateUsers;
   this.body = "Users - Ok";
 });
