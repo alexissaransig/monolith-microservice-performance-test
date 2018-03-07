@@ -20,19 +20,19 @@ app.use(function *(next){
 // ------------------- ENDPOINTS -----------------------
 
 // Generate Users - Mongo
-router.post('/api/generate/users', function *(next) {
+router.get('/api/generate/users', function *(next) {
   yield app.generateUsers;
   this.body = "Users - Ok";
 });
 
 // Generate Threads - Mongo
-router.post('/api/generate/threads', function *(next) {
+router.get('/api/generate/threads', function *(next) {
   yield app.generateThreads;
   this.body = "Threads - Ok";
 });
 
 // Generate Posts - MySQL
-router.post('/api/generate/posts', function *(next) {
+router.get('/api/generate/posts', function *(next) {
   yield app.generatePosts;
   this.body = "Posts - Ok";
 });
