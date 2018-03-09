@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-const limit = 200000;
+const limit = 50000;
 const dd = require('./dumbdata.json');
 
 module.exports = function (app) {
