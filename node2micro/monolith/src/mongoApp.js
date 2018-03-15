@@ -1,6 +1,6 @@
 const mongo = require('mongodb').MongoClient;
 const conn_mongo = "mongodb://localhost:27017/node2micro";
-const limit = 50000;
+const limit = 200000;
 const dd = require('./dumbdata.json');
 
 module.exports = function (app) {
