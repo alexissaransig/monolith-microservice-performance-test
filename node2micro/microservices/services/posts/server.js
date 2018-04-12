@@ -11,7 +11,7 @@ app.use(function *(next){
   const start = new Date;
   yield next;
   const ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms);
+  console.log('%s %s - Finished in %s (ms)', this.method, this.url, ms);
 });
 
 // Generate Posts - MySQL

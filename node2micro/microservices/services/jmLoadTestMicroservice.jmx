@@ -30,7 +30,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -49,7 +49,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3002</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -68,7 +68,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3003</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -105,7 +105,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -124,7 +124,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3002</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -143,7 +143,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Variables pré-définies" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.122.97</stringProp>
+          <stringProp name="HTTPSampler.domain">127.0.0.1</stringProp>
           <stringProp name="HTTPSampler.port">3003</stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -265,6 +265,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           </value>
         </objProp>
         <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="RespTimeGraph.interval">500</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
@@ -418,29 +419,35 @@ Make test last 1 minute (see Scheduler)</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="1368830624">
-            <stringProp name="838760698">192.168.122.97</stringProp>
+          <collectionProp name="1932755773">
+            <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
             <stringProp name="0"></stringProp>
           </collectionProp>
-          <collectionProp name="-931883697">
-            <stringProp name="838760698">192.168.122.97</stringProp>
+          <collectionProp name="-367958548">
+            <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-1993889503">Memory</stringProp>
             <stringProp name="0"></stringProp>
           </collectionProp>
-          <collectionProp name="957125554">
-            <stringProp name="838760698">192.168.122.97</stringProp>
+          <collectionProp name="1521050703">
+            <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="2112896831">Disks I/O</stringProp>
             <stringProp name="0"></stringProp>
           </collectionProp>
-          <collectionProp name="-819543681">
-            <stringProp name="838760698">192.168.122.97</stringProp>
+          <collectionProp name="2045216724">
+            <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-274342153">Network I/O</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-122638619">unit=mb:bytesrecv</stringProp>
+          </collectionProp>
+          <collectionProp name="1942672938">
+            <stringProp reference="../../collectionProp[4]/stringProp"/>
+            <stringProp reference="../../collectionProp[4]/stringProp[2]"/>
+            <stringProp reference="../../collectionProp[4]/stringProp[3]"/>
+            <stringProp name="-122608489">unit=mb:bytessent</stringProp>
           </collectionProp>
         </collectionProp>
       </kg.apc.jmeter.perfmon.PerfMonCollector>
