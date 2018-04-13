@@ -192,7 +192,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           </value>
         </objProp>
         <stringProp name="TestPlan.comments">For scripting only</stringProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
@@ -228,7 +228,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
@@ -264,7 +264,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
         <stringProp name="RespTimeGraph.interval">500</stringProp>
       </ResultCollector>
       <hashTree/>
@@ -301,7 +301,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
@@ -337,7 +337,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
@@ -373,7 +373,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.perfmon.PerfMonCollector guiclass="kg.apc.jmeter.vizualizers.PerfMonGui" testclass="kg.apc.jmeter.perfmon.PerfMonCollector" testname="Performance - Metrics Collector" enabled="true">
@@ -409,7 +409,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log-performance.jtl</stringProp>
+        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log-performance.jtl</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -419,7 +419,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="672821944">
+          <collectionProp name="188019233">
             <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
