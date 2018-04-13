@@ -49,7 +49,7 @@ services:
   mongo:
     build: ./mongo
     expose:
-      - "27017"
+      - "27020:27017"
     volumes_from:
       - volumes
 
