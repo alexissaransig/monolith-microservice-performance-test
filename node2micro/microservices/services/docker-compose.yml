@@ -48,7 +48,7 @@ services:
 
   mongo:
     build: ./mongo
-    expose:
+    ports:
       - "27020:27017"
     volumes_from:
       - volumes
