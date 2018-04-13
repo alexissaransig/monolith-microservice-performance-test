@@ -456,35 +456,47 @@ Make test last 1 minute (see Scheduler)</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="48733794">
-            <stringProp name="231770169">192.168.122.159</stringProp>
+          <collectionProp name="672821944">
+            <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1259908780">label=CPU (%):combined</stringProp>
           </collectionProp>
-          <collectionProp name="2042986769">
-            <stringProp name="231770169">192.168.122.159</stringProp>
+          <collectionProp name="-251720848">
+            <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-1993889503">Memory</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1030586553">label=Memory (%):usedperc</stringProp>
           </collectionProp>
-          <collectionProp name="-362971276">
-            <stringProp name="231770169">192.168.122.159</stringProp>
+          <collectionProp name="-408109218">
+            <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
+            <stringProp name="-1993889503">Memory</stringProp>
+            <stringProp name="1720442209">label=Memory (MB):unit=mb:used</stringProp>
+          </collectionProp>
+          <collectionProp name="569071277">
+            <stringProp reference="../../collectionProp[3]/stringProp"/>
+            <stringProp reference="../../collectionProp[3]/stringProp[2]"/>
             <stringProp name="2112896831">Disks I/O</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1405501122">label=Disc - read (bytes/s):unit=kb:readbytes</stringProp>
           </collectionProp>
-          <collectionProp name="161194745">
-            <stringProp name="231770169">192.168.122.159</stringProp>
-            <stringProp name="1600768">4444</stringProp>
-            <stringProp name="-274342153">Network I/O</stringProp>
-            <stringProp name="-122638619">unit=mb:bytesrecv</stringProp>
+          <collectionProp name="-1596493160">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
+            <stringProp name="2112896831">Disks I/O</stringProp>
+            <stringProp name="610484570">label=Disc - write (bytes/s):writebytes</stringProp>
           </collectionProp>
-          <collectionProp name="58650959">
-            <stringProp reference="../../collectionProp[4]/stringProp"/>
-            <stringProp reference="../../collectionProp[4]/stringProp[2]"/>
+          <collectionProp name="-867629371">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
             <stringProp name="-274342153">Network I/O</stringProp>
-            <stringProp name="-122608489">unit=mb:bytessent</stringProp>
+            <stringProp name="-1123791154">label=Network - receive (bytes/s):bytesrecv</stringProp>
+          </collectionProp>
+          <collectionProp name="-282230401">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
+            <stringProp name="-274342153">Network I/O</stringProp>
+            <stringProp name="326926929">label=Network - sent (bytes/s):bytessent</stringProp>
           </collectionProp>
         </collectionProp>
       </kg.apc.jmeter.perfmon.PerfMonCollector>

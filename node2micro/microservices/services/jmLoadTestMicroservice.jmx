@@ -192,7 +192,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
           </value>
         </objProp>
         <stringProp name="TestPlan.comments">For scripting only</stringProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
@@ -228,7 +228,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
@@ -264,7 +264,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
         <stringProp name="RespTimeGraph.interval">500</stringProp>
       </ResultCollector>
       <hashTree/>
@@ -301,7 +301,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
@@ -337,7 +337,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
@@ -373,7 +373,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log.jtl</stringProp>
       </ResultCollector>
       <hashTree/>
       <kg.apc.jmeter.perfmon.PerfMonCollector guiclass="kg.apc.jmeter.vizualizers.PerfMonGui" testclass="kg.apc.jmeter.perfmon.PerfMonCollector" testname="Performance - Metrics Collector" enabled="true">
@@ -409,7 +409,7 @@ Make test last 1 minute (see Scheduler)</stringProp>
             <connectTime>true</connectTime>
           </value>
         </objProp>
-        <stringProp name="filename">/home/alexis/sites/myapps/node2micro/microservices/services/log-performance.jtl</stringProp>
+        <stringProp name="filename">/Users/alexis/www/myapps/node2micro/microservices/services/log-performance.jtl</stringProp>
         <longProp name="interval_grouping">1000</longProp>
         <boolProp name="graph_aggregated">false</boolProp>
         <stringProp name="include_sample_labels"></stringProp>
@@ -419,35 +419,47 @@ Make test last 1 minute (see Scheduler)</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="1932755773">
+          <collectionProp name="672821944">
             <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1259908780">label=CPU (%):combined</stringProp>
           </collectionProp>
-          <collectionProp name="-367958548">
+          <collectionProp name="-251720848">
             <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-1993889503">Memory</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1030586553">label=Memory (%):usedperc</stringProp>
           </collectionProp>
-          <collectionProp name="1521050703">
+          <collectionProp name="-408109218">
             <stringProp name="838760698">127.0.0.1</stringProp>
             <stringProp name="1600768">4444</stringProp>
+            <stringProp name="-1993889503">Memory</stringProp>
+            <stringProp name="1720442209">label=Memory (MB):unit=mb:used</stringProp>
+          </collectionProp>
+          <collectionProp name="569071277">
+            <stringProp reference="../../collectionProp[3]/stringProp"/>
+            <stringProp reference="../../collectionProp[3]/stringProp[2]"/>
             <stringProp name="2112896831">Disks I/O</stringProp>
-            <stringProp name="0"></stringProp>
+            <stringProp name="-1405501122">label=Disc - read (bytes/s):unit=kb:readbytes</stringProp>
           </collectionProp>
-          <collectionProp name="2045216724">
-            <stringProp name="838760698">127.0.0.1</stringProp>
-            <stringProp name="1600768">4444</stringProp>
+          <collectionProp name="-1596493160">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
+            <stringProp name="2112896831">Disks I/O</stringProp>
+            <stringProp name="610484570">label=Disc - write (bytes/s):writebytes</stringProp>
+          </collectionProp>
+          <collectionProp name="-867629371">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
             <stringProp name="-274342153">Network I/O</stringProp>
-            <stringProp name="-122638619">unit=mb:bytesrecv</stringProp>
+            <stringProp name="-1123791154">label=Network - receive (bytes/s):bytesrecv</stringProp>
           </collectionProp>
-          <collectionProp name="1942672938">
-            <stringProp reference="../../collectionProp[4]/stringProp"/>
-            <stringProp reference="../../collectionProp[4]/stringProp[2]"/>
-            <stringProp reference="../../collectionProp[4]/stringProp[3]"/>
-            <stringProp name="-122608489">unit=mb:bytessent</stringProp>
+          <collectionProp name="-282230401">
+            <stringProp reference="../../collectionProp[2]/stringProp"/>
+            <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
+            <stringProp name="-274342153">Network I/O</stringProp>
+            <stringProp name="326926929">label=Network - sent (bytes/s):bytessent</stringProp>
           </collectionProp>
         </collectionProp>
       </kg.apc.jmeter.perfmon.PerfMonCollector>
