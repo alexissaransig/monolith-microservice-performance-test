@@ -88,9 +88,9 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">30</stringProp>
+          <stringProp name="LoopController.loops">40</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1373789594000</longProp>
         <longProp name="ThreadGroup.end_time">1373789594000</longProp>
@@ -456,43 +456,43 @@ Make test last 1 minute (see Scheduler)</stringProp>
         <boolProp name="include_checkbox_state">false</boolProp>
         <boolProp name="exclude_checkbox_state">false</boolProp>
         <collectionProp name="metricConnections">
-          <collectionProp name="672821944">
+          <collectionProp name="-1418439195">
             <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="66952">CPU</stringProp>
             <stringProp name="-1259908780">label=CPU (%):combined</stringProp>
           </collectionProp>
-          <collectionProp name="-251720848">
+          <collectionProp name="-1858179276">
             <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-1993889503">Memory</stringProp>
             <stringProp name="-1030586553">label=Memory (%):usedperc</stringProp>
           </collectionProp>
-          <collectionProp name="-408109218">
+          <collectionProp name="-2014567646">
             <stringProp name="838760698">192.168.122.159</stringProp>
             <stringProp name="1600768">4444</stringProp>
             <stringProp name="-1993889503">Memory</stringProp>
             <stringProp name="1720442209">label=Memory (MB):unit=mb:used</stringProp>
           </collectionProp>
-          <collectionProp name="569071277">
+          <collectionProp name="-1037387151">
             <stringProp reference="../../collectionProp[3]/stringProp"/>
             <stringProp reference="../../collectionProp[3]/stringProp[2]"/>
             <stringProp name="2112896831">Disks I/O</stringProp>
             <stringProp name="-1405501122">label=Disc - read (bytes/s):unit=kb:readbytes</stringProp>
           </collectionProp>
-          <collectionProp name="-1596493160">
+          <collectionProp name="1092015708">
             <stringProp reference="../../collectionProp[2]/stringProp"/>
             <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
             <stringProp name="2112896831">Disks I/O</stringProp>
             <stringProp name="610484570">label=Disc - write (bytes/s):writebytes</stringProp>
           </collectionProp>
-          <collectionProp name="-867629371">
+          <collectionProp name="1820879497">
             <stringProp reference="../../collectionProp[2]/stringProp"/>
             <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
             <stringProp name="-274342153">Network I/O</stringProp>
             <stringProp name="-1123791154">label=Network - receive (bytes/s):bytesrecv</stringProp>
           </collectionProp>
-          <collectionProp name="-282230401">
+          <collectionProp name="-1888688829">
             <stringProp reference="../../collectionProp[2]/stringProp"/>
             <stringProp reference="../../collectionProp[2]/stringProp[2]"/>
             <stringProp name="-274342153">Network I/O</stringProp>
